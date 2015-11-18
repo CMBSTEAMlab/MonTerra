@@ -1,3 +1,27 @@
+/*
+MonTerra Project - An Arduino powered soil moisture monitoring station.
+
+Copyright 2015 by Children's Museum of Bozeman (steamlab@cmbozeman.org)
+
+    This file is part of the MonTerra project.
+
+    MonTerra Project is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+==========================================================================
+*/
+
 #include "Phant.h"
 #include "Narcoleptic.h"
 #include <CapacitiveSensor.h>
@@ -9,9 +33,6 @@ const encryption WIFI_EE = WPA2;                // If you don't have a password 
 const String stationID = "<Station ID>"; // replace <Station ID> with the a name you want to call your station, using something descriptive!
 const String public_key = "<Phant public key>";
 const String private_key = "<Phant private key>";
-
-
-
 
 //#define DEBUG // uncomment this to print debugging information to Serial monitor, 
                 // comment out when not connected via USB or program will not progress past setup
@@ -33,13 +54,12 @@ const byte XB_ON_PIN = 13; // XBee's ON pin
 const int XBEE_BAUD = 9600; // Your XBee's baud (9600 is default)
 
 CapacitiveSensor cs = CapacitiveSensor(9,10); 
-//CapacitiveSensor cs = CapacitiveSensor(10,9); 
 long moistureReading;
 unsigned long seq = 0;
 
 const unsigned long DEBUG_UPDATE_DELAY = 20000;
-const unsigned long UPDATE_DELAY = 300000;
-//const unsigned long UPDATE_DELAY = 20000;
+const unsigned long UPDATE_DELAY = 864000000;
+//const unsigned long UPDATE_DELAY = 300000;
 
 void setup() {
   cs.set_CS_AutocaL_Millis(0xFFFFFFFF);
@@ -68,17 +88,11 @@ void setup() {
   }
   delay(3000);
     wakeXBee();
-
-#ifdef SETUP_MODE
-   // setupWalkthrough();
-#endif
 }
 
-void setupWalkthrough() {
+void printAvailableWifiNetworks() {
   command("ATAS");
 
-  //int count
-  
   bool done = false;
   while(!done) {
     waitForAvailable(1); 
@@ -97,7 +111,6 @@ void setupWalkthrough() {
   Serial.println();
   Serial.println("done with ATAS");
   delay(1000);
-  //while(1) {}
 }
 
 void setupSleepMode() {
@@ -123,26 +136,6 @@ void readData() {
 }
 
 void loop() {
-
-  int status;
-  while((status = checkWiFiConnection()) != 0) {
-#ifdef DEBUG
-    Serial.print("Waiting to connect to wifi sendData: ");
-    Serial.print(status, HEX);
-    Serial.println();
-#endif
-  }
-  
-  unsigned long int t = millis();
-  writeToXB("POST /input/YG00rLpOYXFm42n84Kdr.txt HTTP/1.1\r\nHost: data.sparkfun.com\r\nPhant-Private-Key: RbqqZDE0PwH1pm4KpAvD\r\nConnection: close\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: 54\r\n\r\nmoisture=1234&stationid=MonTerra1&attempt=2&sequence=1");
-
-  while(millis()-t < 20000) {
-    while(XB_SERIAL.available() > 0) {
-      Serial.write(XB_SERIAL.read());
-    }
-    delay(100);
-  }
-  /*
   seq++;
   
   wakeXBee();
@@ -171,7 +164,6 @@ void loop() {
 #else
   Narcoleptic.delay(UPDATE_DELAY); // don't use when connected to USB
 #endif
-*/
 }
 
 void wakeXBee() {
