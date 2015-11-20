@@ -24,7 +24,7 @@ Copyright 2015 by Children's Museum of Bozeman (steamlab@cmbozeman.org)
 
 #include "Phant.h"
 #include "Narcoleptic.h"
-#include <CapacitiveSensor.h>
+#include "CapacitiveSensor.h"
 
 enum encryption{NO_SECURITY, WPA, WPA2, WEP};
 const String WIFI_SSID = "<WiFi Network Name>"; // replace <WiFi Network Name> with the name of your wifi network
@@ -87,7 +87,6 @@ void setup() {
     command("ATRE");
   }
   delay(3000);
-    wakeXBee();
 }
 
 void printAvailableWifiNetworks() {
@@ -216,7 +215,7 @@ bool sendData(int attempt) {
   int status;
   while((status = checkWiFiConnection()) != 0) {
 #ifdef DEBUG
-    Serial.print("Waiting to connect to wifi sendData: ");
+    Serial.print("Waiting to connect to wifi: ");
     Serial.print(status, HEX);
     Serial.println();
 #endif
