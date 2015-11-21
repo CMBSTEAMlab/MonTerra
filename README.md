@@ -113,14 +113,14 @@ Your enclosure is either a white 3D printed enclosure mounted on a metal stake o
 2. Unzip master.zip
 3. Open the Arduino IDE
 4. Click File - Open… and navigate arduino/MonTerra/MonTerra.ino
-5. Replace <WiFi Network Name> with the name of your wifi network. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/ssid.jpg" alt="set wifi SSID" style="width: 300px"/>
-6. Replace <WiFi Password> with your wifi network’s password. If your network is open (doesn’t require a password), remove <WiFi Password>.  <img src="https://s3-us-west-2.amazonaws.com/monterraimages/password.png" alt="set wifi password" style="width: 300px"/>
-7. WPA2 is the most common authentication type, but if your network is different change WPA2 to one of NO_SECURITY, WPA, or WEP. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/encryption.png" alt="set wifi encryption" style="width: 300px"/>
-8. Replace <Station ID> with a descriptive name for your soil moisture monitoring station. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/station_id.png" alt="set station id" style="width: 300px"/>
-9. Replace <Phant public key> with the public key from step 7 of “Setup a Phant stream” above. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/public_key.png" alt="set public key" style="width: 300px"/>
-10. Replace <Phant private key> with the private key from step 7 of “Setup a Phant stream” above. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/private_key.png" alt="set private key" style="width: 300px"/>
+5. Replace <WiFi Network Name> with the name of your wifi network. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/ssid.png" alt="set wifi SSID" style="width: 382px"/>
+6. Replace <WiFi Password> with your wifi network’s password. If your network is open (doesn’t require a password), remove <WiFi Password>.  <img src="https://s3-us-west-2.amazonaws.com/monterraimages/password.png" alt="set wifi password" style="width: 338px"/>
+7. WPA2 is the most common authentication type, but if your network is different change WPA2 to one of NO_SECURITY, WPA, or WEP. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/encryption.png" alt="set wifi encryption" style="width: 259px"/>
+8. Replace <Station ID> with a descriptive name for your soil moisture monitoring station. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/station_id.png" alt="set station id" style="width: 322"/>
+9. Replace <Phant public key> with the public key from step 7 of “Setup a Phant stream” above. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/public_key.png" alt="set public key" style="width: 350px"/>
+10. Replace <Phant private key> with the private key from step 7 of “Setup a Phant stream” above. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/private_key.png" alt="set private key" style="width: 400px"/>
 11. Connect the Pololu A-Star 32U4 Mini LV to your computer with the provided USB cable.
-12. Click the Upload button in the upper left (<img src="https://s3-us-west-2.amazonaws.com/monterraimages/upload.png" alt="upload" style="display: inline"/>
+12. Click the Upload button in the upper left (<img src="https://s3-us-west-2.amazonaws.com/monterraimages/upload.png" alt="upload" style="width: 25px; display: inline"/>
 ) or under the Sketch menu.
 13. Wait for the the “Done uploading.” message in the lower left corner. See the troubleshooting section if you don’t see this message.
 
@@ -145,14 +145,16 @@ In the zip file you downloaded in step 1 of the "Configure your wifi network" se
 1. Open the Arduino IDE
 2. Click File - Open… and navigate to the folder you extracted master.zip to.
 3. Open the arduino/DebugSoilMoistureSensor/DebugSoilMoistureSensor.ino
-4. Click the Upload button in the upper left () or under the Sketch menu.
+4. Click the Upload button in the upper left (<img src="https://s3-us-west-2.amazonaws.com/monterraimages/upload.png" alt="upload" style="width: 25px; display: inline"/>) or under the Sketch menu.
 5. Wait for the the “Done uploading.” message in the lower left corner. See the troubleshooting section if you don’t see this message.
 
 ### Advanced experimentation
 
 The Pololu A-Star 32U4 Mini LV can be removed from the socket on the soil moisture monitoring board, and instead be plugged into a breadboard (not included). Wires (also not included) can be connected from the 9 pins shown in the images below. The pins used on the MonTerra Board are digital pins 0, 1, 6, 9, 10, and 13 along with 3V3, 5V and GND. If you want to power it with batteries, you also have to bring over BAT+ (BAT- is the same as GND).
 
-
+<img src="https://s3-us-west-2.amazonaws.com/monterraimages/advanced1.jpg" alt="advanced1" style="width: 400px;"/>
+<img src="https://s3-us-west-2.amazonaws.com/monterraimages/advanced2.jpg" alt="advanced2" style="width: 400px;"/>
+<img src="https://s3-us-west-2.amazonaws.com/monterraimages/advanced3.jpg" alt="advanced3" style="width: 400px;"/>
 
 You can now attach more inputs such as additional sensors for broadcasting more information to your Phant stream. You could also add outputs such as LEDs, servos or relays that react to the sensor information. After experimenting with different inputs and outputs, you could incorporate your changes into the MonTerra board using EAGLE CAD (see the “Further Resources” section below for more information about EAGLE CAD) and produce a new board that has your new inputs and outputs built-in.
 
@@ -182,8 +184,8 @@ Things to check:
 1. In the Arduino IDE, open the MonTerra.ino sketch.
 2. Find the following line that is commented out using two slashes (//) at the beginning of the line.
 3. Remove the two slashes from the beginning of the line to uncomment it.
-4. Click the Upload button in the upper left () or under the Sketch menu.
-5. Wait for it to say “Done uploading.” at the bottom of the window then click the Serial Monitor button in the upper right corner () or under the Tools menu. If a red error appears near the bottom that says the port is not available, wait a few seconds and then click the Serial Monitor button again.
+4. Click the Upload button in the upper left (<img src="https://s3-us-west-2.amazonaws.com/monterraimages/upload.png" alt="upload" style="width: 25px; display: inline"/>) or under the Sketch menu.
+5. Wait for it to say “Done uploading.” at the bottom of the window then click the Serial Monitor button in the upper right corner (<img src="https://s3-us-west-2.amazonaws.com/monterraimages/serial_monitor.png" alt="serial monitor" style="width: 25px; display: inline"/>) or under the Tools menu. If a red error appears near the bottom that says the port is not available, wait a few seconds and then click the Serial Monitor button again.
 
 #### Debugging messages
 
@@ -215,6 +217,9 @@ Contact CMB STEAMlab at 406-522-9087, email steamlab@cmbozeman.org or file an is
 ## Circuit Diagrams
 
 These diagrams were generated by EAGLE CAD, the software used to design the MonTerra soil moisture monitoring board.
+
+<img src="https://s3-us-west-2.amazonaws.com/monterraimages/monterra_pcb.png" alt="pcb" style="width: 400px;"/>
+<img src="https://s3-us-west-2.amazonaws.com/monterraimages/monterra_circuit.png" alt="circuit" style="width: 400px;"/>
 
 ## Further Resources
 
