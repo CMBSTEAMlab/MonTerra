@@ -4,6 +4,8 @@
 
 ### About the MonTerra Soil Moisture Monitoring Station
 
+<img src="https://s3-us-west-2.amazonaws.com/monterraimages/DSC_0001.jpg" alt="Bozeman High School students busy prototyping MonTerra stations." style="width: 400px"/>
+
 The Children’s Museum of Bozeman’s STEAMlab is a hands-on, mentor-led learning environment where children from a wide variety of backgrounds and skill levels combine digital design, high-tech fabrication and simple electronics to construct meaningful projects, build skills, and unlock understanding.
 
 In partnership with Montana State University’s Extended University and the Institute on Ecosystems, students in the STEAMlab engaged in a year-long project to design, prototype and test a variety of tools for measuring soil moisture. Each component of the MonTerra Soil Moisture Monitoring Station - from the 3D printed enclosure to the interior circuitry to the code that uploads moisture data to the web - was designed by high school kids in Bozeman for use by schoolchildren all around Montana.
