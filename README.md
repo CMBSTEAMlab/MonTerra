@@ -167,24 +167,27 @@ Things to check:
 3. Remove the two slashes from the beginning of the line to uncomment it.
 4. Click the Upload button in the upper left () or under the Sketch menu.
 5. Wait for it to say “Done uploading.” at the bottom of the window then click the Serial Monitor button in the upper right corner () or under the Tools menu. If a red error appears near the bottom that says the port is not available, wait a few seconds and then click the Serial Monitor button again.
-6. Debugging information will continuously be printed out as the Arduino sends commands to the XBee Wifi module. Things to watch for:
-The message “+++ Entering command mode” followed by “NOT OK”
 
-  a. This message indicates the Arduino is unable to communicate with the XBee. The XBee may be asleep. Try disconnecting all power to the Arduino by disconnecting the USB and batteries and then hooking them back up. If this message continues to be printed out, the XBee module may need to be replaced.
+#### Debugging messages
+
+Debugging information will continuously be printed out as the Arduino sends commands to the XBee Wifi module. Things to watch for:
 
 
-  b. The message “Waiting to connect to wifi: FF” repeating over and over.
+##### “+++ Entering command mode” followed by “NOT OK”
+
+This message indicates the Arduino is unable to communicate with the XBee. The XBee may be asleep. Try disconnecting all power to the Arduino by disconnecting the USB and batteries and then hooking them back up. If this message continues to be printed out, the XBee module may need to be replaced.
+
+##### “Waiting to connect to wifi: FF” repeating over and over.
 
 This message indicates that the XBee is trying to find the specified wifi network. If this message persists it may indicate that you’ve incorrectly input the network name. 
 
 This error can also happen because we are in debug mode. The 3.3V power supply on the Arduino is responsible for regulating messaging over USB. Sometimes there isn’t enough power to be in debug mode and use the XBee. Hooking up the battery pack in addition to the USB cable can help get around this problem.
 
-  c. The message “Waiting to connect to wifi: 24” repeating over and over.
-
+##### “Waiting to connect to wifi: 24” repeating over and over.
 
 This message indicates that the provided wifi network password is incorrect. Check the WIFI_PSK variable at the top of the program.
 
-  d. The message “Waiting to connect to wifi: 41”
+##### “Waiting to connect to wifi: 41”
 
 This message usually indicates that the XBee has successfully connected to the wifi network, but is still waiting to be assigned an IP address. This message should not print out more than a few times before successfully sending data to the cloud.
 
