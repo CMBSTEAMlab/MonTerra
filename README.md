@@ -4,7 +4,7 @@
 
 ### About the MonTerra Soil Moisture Monitoring Station
 
-<img src="https://s3-us-west-2.amazonaws.com/monterraimages/DSC_0001.jpg" alt="Bozeman High School students busy prototyping MonTerra stations." style="width: 400px"/>
+<img src="https://s3-us-west-2.amazonaws.com/monterraimages/prototyping.jpg" alt="Bozeman High School students busy prototyping MonTerra stations." style="width: 400px"/>
 
 The Children’s Museum of Bozeman’s STEAMlab is a hands-on, mentor-led learning environment where children from a wide variety of backgrounds and skill levels combine digital design, high-tech fabrication and simple electronics to construct meaningful projects, build skills, and unlock understanding.
 
@@ -42,30 +42,44 @@ The soil moisture monitoring station is composed of the following components:
 
 #### MonTerra Soil Moisture Monitoring Board
 
+<img src="https://s3-us-west-2.amazonaws.com/monterraimages/monterra_board.jpg" alt="MonTerra Soil Moisture Monitoring Board" style="width: 300px"/>
+
 This purple printed circuit board (PCB) has sockets for several of the components listed below and the necessary connections between them so that they can function as a soil moisture monitoring station. The modular design allows for easy removal and replacement of faulty components. It also allows for the use of the Arduino and XBee module in other projects.
 
 
 #### Arduino - Pololu A-Star 32U4 Mini LV
 
+<img src="https://s3-us-west-2.amazonaws.com/monterraimages/pololu_a_star_mini.jpg" alt="Pololu A-Star 32U4 Mini LV" style="width: 300px"/>
+
 This Arduino-compatible microcontroller was chosen for its efficient power regulator, which allows it to be powered from any power source between 2.7 and 11.8 volts. Other models of the Pololu A-Star 32U4 family have the same footprint and can be interchanged. The ULV model supports voltages from .5V to 5.5V and the SV model supports 5V to 36V. Having this flexibility allows for different battery configurations so further development can be made (such as designing for a solar charging station).
 
 #### XBee Wifi Module
+
+<img src="https://s3-us-west-2.amazonaws.com/monterraimages/xbee.jpg" alt="XBee Wifi Module" style="width: 300px"/>
 
 This module transmits the soil moisture data to the cloud. There are other kinds of XBee modules that could be interchanged to transfer data in different ways (such as point to point or mesh networks).
 
 #### Bidirectional 3.3V to 5V level shifter
 
+<img src="https://s3-us-west-2.amazonaws.com/monterraimages/level_shifter.jpg" alt="5V to 3.3V level shifter" style="width: 300px"/>
+
 The Arduino runs at 5V, whereas the XBee module runs at 3.3V so to communicate with each other the voltage needs to be converted from one to the other.
 
 #### MonTerra Soil Moisture Sensor
+
+<img src="https://s3-us-west-2.amazonaws.com/monterraimages/soil_moisture_sensor.jpg" alt="MonTerra Soil Moisture Sensor" style="width: 300px"/>
 
 The sensor uses capacitive plates that can sense changes to the material surrounding it (called the dielectric). The plates in the sensor form a capacitor and it works by seeing how long it takes for the capacitor to charge. Wet soil takes longer to charge than dry soil.
 
 #### Batteries
 
+<img src="https://s3-us-west-2.amazonaws.com/monterraimages/batteries.jpg" alt="6 NiMH Batteries" style="width: 300px"/>
+
 The MonTerra is powered using 6 NiMH rechargeable AA batteries, which provide a nominal voltage of 7.2V. The batteries will need to be charged weekly during standard deployment. The batteries should not be recharged at temperatures below 32 degrees Fahrenheit. If the batteries are cold, bring them indoors and allow them to come up to room temperature before recharging.
 
 #### Enclosure
+
+<img src="https://s3-us-west-2.amazonaws.com/monterraimages/enclosure.jpg" alt="Enclosure" style="width: 300px"/>
 
 Your enclosure is either a white 3D printed enclosure mounted on a metal stake or a gray electrical box that will house all of the MonTerra’s electrical components.
 
@@ -77,21 +91,21 @@ Your enclosure is either a white 3D printed enclosure mounted on a metal stake o
 2. Install the Arduino IDE - https://learn.sparkfun.com/tutorials/installing-arduino-ide   
 3. Install Pololu drivers and Arduino IDE settings by following steps 6.1-6.2 of the following document - https://www.pololu.com/docs/0J61/all#6
 4. Run the Arduino IDE
-5. Select the Pololu A-Star 32U4 Board under the Tools - Board menu
-6. Select Pololu USB AVR Programmer under the Tools - Programmer menu
+5. Select the Pololu A-Star 32U4 Board under the Tools - Board menu <img src="https://s3-us-west-2.amazonaws.com/monterraimages/select_board.png" alt="Select Pololu Board" style="width: 400px"/>
+6. Select Pololu USB AVR Programmer under the Tools - Programmer menu <img src="https://s3-us-west-2.amazonaws.com/monterraimages/select_programmer.png" alt="Select Pololu Programmer" style="width: 400px"/>
 7. Connect the Pololu A-Star 32U4 Mini LV to your computer with the provided USB cable.
-8. Select the USB port that corresponds to the Pololu A-Star 32U4 Mini LV under the Tools - Port menu (on Windows it will be COM# with the # replaced with the port number)
+8. Select the USB port that corresponds to the Pololu A-Star 32U4 Mini LV under the Tools - Port menu (on Windows it will be COM# with the # replaced with the port number) <img src="https://s3-us-west-2.amazonaws.com/monterraimages/select_port.png" alt="Select Pololu Port" style="width: 400px"/>
+
 
 ### Setup a Phant stream
 
 1. In a browser, go to http://69.145.204.62:8080/
-2. Click Create to create a data stream.
-3. Fill in the title and description to identify your monitoring station.
-4. Fill in the following for the Fields text box (make sure the case matches exactly):
-5. Enter your location
+2. Click Create to create a data stream. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/phant_create.png" alt="Create Phant Stream" style="width: 400px"/>
+3. Fill in the title and description to identify your monitoring station. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/phant_title_desc.png" alt="Set Phant Title and Description" style="width: 400px"/>
+4. Fill in the Fields text box with attempt, moisture, sequence and stationid (make sure the case matches exactly): <img src="https://s3-us-west-2.amazonaws.com/monterraimages/phant_fields.png" alt="Set Phant Fields" style="width: 400px"/>
+5. Enter your location <img src="https://s3-us-west-2.amazonaws.com/monterraimages/location.png" alt="Set Phant Fields" style="width: 400px"/>
 6. Optionally, set an alias for the stream (this can make it easier to remember the URL of your stream)
-7. You will be presented with a URL and a number of keys (public, private and delete). Write these keys down or save them to a file as you’ll need to program them into your soil moisture monitoring station.
-
+7. You will be presented with a URL and a number of keys (public, private and delete). Write these keys down or save them to a file as you’ll need to program them into your soil moisture monitoring station. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/phant_keys.png" alt="Save Phant keys" style="width: 400px"/>
 
 ### Configure your wifi network
 
@@ -99,14 +113,15 @@ Your enclosure is either a white 3D printed enclosure mounted on a metal stake o
 2. Unzip master.zip
 3. Open the Arduino IDE
 4. Click File - Open… and navigate arduino/MonTerra/MonTerra.ino
-5. Replace <WiFi Network Name> with the name of your wifi network.
-6. Replace <WiFi Password> with your wifi network’s password. If your network is open (doesn’t require a password), remove <WiFi Password>.
-7. WPA2 is the most common authentication type, but if your network is different change WPA2 to one of NO_SECURITY, WPA, or WEP.
-8. Replace <Station ID> with a descriptive name for your soil moisture monitoring station.
-9. Replace <Phant public key> with the public key from step 7 of “Setup a Phant stream” above.
-10. Replace <Phant private key> with the private key from step 7 of “Setup a Phant stream” above.
+5. Replace <WiFi Network Name> with the name of your wifi network. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/ssid.jpg" alt="set wifi SSID" style="width: 300px"/>
+6. Replace <WiFi Password> with your wifi network’s password. If your network is open (doesn’t require a password), remove <WiFi Password>.  <img src="https://s3-us-west-2.amazonaws.com/monterraimages/password.png" alt="set wifi password" style="width: 300px"/>
+7. WPA2 is the most common authentication type, but if your network is different change WPA2 to one of NO_SECURITY, WPA, or WEP. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/encryption.png" alt="set wifi encryption" style="width: 300px"/>
+8. Replace <Station ID> with a descriptive name for your soil moisture monitoring station. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/station_id.png" alt="set station id" style="width: 300px"/>
+9. Replace <Phant public key> with the public key from step 7 of “Setup a Phant stream” above. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/public_key.png" alt="set public key" style="width: 300px"/>
+10. Replace <Phant private key> with the private key from step 7 of “Setup a Phant stream” above. <img src="https://s3-us-west-2.amazonaws.com/monterraimages/private_key.png" alt="set private key" style="width: 300px"/>
 11. Connect the Pololu A-Star 32U4 Mini LV to your computer with the provided USB cable.
-12. Click the Upload button in the upper left () or under the Sketch menu.
+12. Click the Upload button in the upper left (<img src="https://s3-us-west-2.amazonaws.com/monterraimages/upload.png" alt="upload" style="display: inline"/>
+) or under the Sketch menu.
 13. Wait for the the “Done uploading.” message in the lower left corner. See the troubleshooting section if you don’t see this message.
 
 ## Use Cases
